@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head> 
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../Design/Style.css">
+        <script src="../JS/Script.js"></script>
+        <title> University Management System </title>
+    </head>
+
+    <body>
+        <div class="container">
+            
+            <!-- Header Section with Circle Logo -->
+            <div class="header">
+                <div class="header-content">
+                    <img src="../Assets/aiub.png" id="logo" alt="AIUB Logo">
+                    <div>
+                        <h1>AIUB | Teacher Panel</h1>
+                        <p class="user-info">Rashedul Islam (Computer Science)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden Radio Buttons for Pure CSS Tab Switching -->
+            <input type="radio" id="tab1" name="tab-group" checked class="tab-toggle">
+            <input type="radio" id="tab2" name="tab-group" class="tab-toggle">
+            <input type="radio" id="tab3" name="tab-group" class="tab-toggle">
+            <input type="radio" id="tab4" name="tab-group" class="tab-toggle">
+            <input type="radio" id="tab5" name="tab-group" class="tab-toggle">
+
+            <!-- Top Navigation Labels -->
+            <div class="topnav">
+                <label for="tab1"> Dashboard </label>
+                <label for="tab2"> Profile Update </label>
+                <label for="tab3"> Input Marks </label>
+                <label for="tab4"> Post Assignment </label>
+                <label for="tab5"> Logout </label>
+            </div>
+            <br>
+
+            <!-- TAB 1: Dashboard Overview -->
+            <div id="content-1" class="tab-content">
+                <fieldset>
+                    <legend> Teacher Overview </legend>
+                    <table>
+                        <tr>
+                            <td><strong>Welcome:</strong></td>
+                            <td>Rashedul Islam (Computer Science)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total Courses:</strong></td>
+                            <td>3 Courses Assigned</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Active Students:</strong></td>
+                            <td>120 Students</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pending Reviews:</strong></td>
+                            <td>12 Assignments</td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </div>
+
+            <!-- TAB 2: Profile Update Form -->
+            <div id="content-2" class="tab-content">
+                <form onsubmit="return collect_profile_data()">
+                    <fieldset>
+                        <legend> Profile Update </legend>
+                        <table>
+                            <tr>
+                                <td> <label for="FirstName"> First Name: </label> </td>
+                                <td> 
+                                    <input type="text" id="FirstName" name="FirstName" placeholder="First Name"> 
+                                    <p id="FirstNameError"></p>
+                                </td>
+                                <td> <label for="LastName"> Last Name: </label> </td>
+                                <td> 
+                                    <input type="text" id="LastName" name="LastName" placeholder="Last Name"> 
+                                    <p id="LastNameError"></p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td> <label for="EmpID"> Employee ID: </label> </td>
+                                <td colspan="3"> 
+                                    <input type="text" id="EmpID" name="EmpID" placeholder="Enter the Right Id"> 
+                                    <p id="EmpIDError"></p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td> <label for="TeacherEmail"> Email: </label> </td>
+                                <td colspan="3"> 
+                                    <input type="email" id="TeacherEmail" name="TeacherEmail" placeholder="Email"> 
+                                    <p id="EmailError"></p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td> <label for="Department"> Department: </label> </td>
+                                <td> 
+                                    <select id="Department" name="Department">
+                                        <option value="CSE" selected> CSE </option>
+                                        <option value="EEE"> EEE </option>
+                                        <option value="BBA"> BBA </option>
+                                    </select>
+                                </td>
+                                <td> <label for="Specialization"> Specialization: </label> </td>
+                                <td> <input type="text" id="Specialization" name="Specialization" placeholder="e.g. Data Science"> </td>
+                            </tr>
+
+                            <tr>
+                                <td> <label for="NewPassword"> New Password: </label> </td>
+                                <td colspan="3"> 
+                                    <input type="password" id="NewPassword" name="NewPassword" placeholder="New Password"> 
+                                    <p id="PassError"></p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td> <label for="ConfirmPassword"> Confirm Password: </label> </td>
+                                <td colspan="3"> 
+                                    <input type="password" id="ConfirmPassword" name="ConfirmPassword" placeholder="Confirm Password"> 
+                                    <p id="CPassError"></p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td> <label for="ProfilePic"> Profile Picture: </label> </td>
+                                <td colspan="3"> <input type="file" id="ProfilePic" name="ProfilePic"> </td>
+                            </tr>
+                        </table>      
+                    </fieldset>
+                    <input type="submit" id="submit" value="Save Changes">
+                    <input type="reset" id="reset" value="Reset">
+                </form>
+            </div>
+
+            <!-- TAB 3: Input Marks Form -->
+            <div id="content-3" class="tab-content">
+                <form>
+                    <fieldset>
+                        <legend> Input Marks </legend>
+                        <table>
+                            <tr>
+                                <td> <label for="Course"> Select Course: </label> </td>
+                                <td> 
+                                    <select id="Course" name="Course">
+                                        <option value="CSE101"> CSE101: Introduction to Programming </option>
+                                        <option value="CSE203"> CSE203: Algorithms </option>
+                                        <option value="CSE301"> CSE301: Data Structures </option>
+                                    </select>
+                                </td>
+                                <td> <label for="Batch"> Select Batch: </label> </td>
+                                <td> 
+                                    <select id="Batch" name="Batch">
+                                        <option value="Fall26A"> Fall 2026 - A </option>
+                                        <option value="Spring26B"> Spring 2026 - B </option>
+                                        <option value="Summer26C"> Summer 2026 - C </option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> <label for="ExamType"> Select Exam Type: </label> </td>
+                                <td colspan="3"> 
+                                    <select id="ExamType" name="ExamType">
+                                        <option value="Midterm1"> Midterm  </option>
+                                        <option value="Final"> Final Exam </option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <br>
+                        <!-- Marks Table -->
+                        <table border="1" class="data-table">
+                            <thead> 
+                                <tr>
+                                    <th>Sl. No.</th>
+                                    <th>Student ID</th>
+                                    <th>Student Name</th>
+                                    <th>Marks Input</th>
+                                </tr>
+                            </thead> 
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>260101</td>
+                                    <td>Jannatul Ferdous</td>
+                                    <td><input type="number" name="marks_260101" value="85"></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>260102</td>
+                                    <td>Shatabdi Rahman</td>
+                                    <td><input type="number" name="marks_260102" value="85"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                    <input type="submit" id="submit" value="Submit Marks">
+                    <input type="reset" id="reset" value="Reset">
+                </form>
+            </div>
+
+            <!-- TAB 4: Post Assignment Form -->
+            <div id="content-4" class="tab-content">
+                <form onsubmit="return collect_assignment_data()">
+                    <fieldset>
+                        <legend> Post New Assignment </legend>
+                        <table>
+                            <tr>
+                                <td> <label for="AssignTitle"> Assignment Title: </label> </td>
+                                <td> 
+                                    <input type="text" id="AssignTitle" name="AssignTitle" placeholder="Enter title"> 
+                                    <p id="TitleError"></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> <label for="AsgnCourse"> Select Course: </label> </td>
+                                <td> 
+                                    <select id="AsgnCourse" name="AsgnCourse">
+                                        <option value=""> Select Option </option>
+                                        <option value="CSE101"> CSE101 - Introduction to Programming </option>
+                                        <option value="CSE203"> CSE203 - Algorithm </option>
+                                    </select>
+                                    <p id="CourseError"></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> <label for="Deadline"> Deadline: </label> </td>
+                                <td> 
+                                    <input type="date" id="Deadline" name="Deadline"> 
+                                    <p id="DateError"></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> <label for="Instructions"> Instructions: </label> </td>
+                                <td> 
+                                    <textarea id="Instructions" name="Instructions" placeholder="Write details..."></textarea> 
+                                    <p id="InstructionError"></p>
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                    <input type="submit" id="submit" value="Post Assignment">
+                    <input type="reset" id="reset" value="Reset">
+                </form>
+            </div>
+
+            <!-- TAB 5: Logout Section -->
+            <div id="content-5" class="tab-content">
+                <fieldset class="logout-fieldset">
+                    <legend> Logout System </legend>
+                    <p class="logout-text">Are you sure you want to log out from the system?</p>
+                    <a href="https://www.aiub.edu/" target="_blank" class="logout-btn">Confirm Logout</a>
+                </fieldset>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <h5> Created by Rashedul Islam </h5>
+            </div>
+
+        </div>
+    </body>
+</html>
